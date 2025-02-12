@@ -12,8 +12,14 @@
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(Weapon weapon): _weapon(weapon)
-{}
+/*-------------------------------------------------------------------------
+Constructor takes reference to the Weapon club from the main
+-> doesnt make a copy of the object, but refers to the "real" weapon from main
+-------------------------------------------------------------------------*/
+HumanA::HumanA(std::string name, Weapon& weapon): _name(name), _weapon(weapon)
+{
+
+}
 
 HumanA::~HumanA()
 {}

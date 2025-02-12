@@ -21,11 +21,11 @@ OBJS = $(SRCS:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) - o $(NAME)
-	@echo "\033[32m zombie built successfully! \033[0m"
+	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	@echo "\033[32m weapon built successfully! \033[0m"
 
 %.o: %.cpp
-	$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	@echo "\033[34m cleaning up... \033[0m"
