@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maustel <maustel@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 10:43:00 by maustel           #+#    #+#             */
-/*   Updated: 2025/02/12 10:43:00 by maustel          ###   ########.fr       */
+/*   Created: 2025/02/12 10:47:55 by maustel           #+#    #+#             */
+/*   Updated: 2025/02/12 10:47:55 by maustel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-/*-------------------------------------------------------------------------
-Zombie_Heap exists until delete
-Zombie_Stack only exists during function random Chump
--------------------------------------------------------------------------*/
-int main()
+Zombie::Zombie(void)
 {
-	Zombie*		zombie = newZombie("Zombie_Heap");
-	
-	zombie->announce();
-	randomChump("Zombie_Stack");
+	// std::cout << this->_name << " rised up!" << std::endl;
+}
 
-	delete zombie;
-	return (0);
+Zombie::~Zombie()
+{
+	std::cout << this->_name << " destroyed!" << std::endl;
+}
+
+void Zombie::announce( void )
+{
+	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void Zombie::init(std::string name)
+{
+	this->_name = name;
 }

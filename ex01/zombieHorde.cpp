@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maustel <maustel@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 10:43:00 by maustel           #+#    #+#             */
-/*   Updated: 2025/02/12 10:43:00 by maustel          ###   ########.fr       */
+/*   Created: 2025/02/12 12:11:08 by maustel           #+#    #+#             */
+/*   Updated: 2025/02/12 12:11:08 by maustel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-/*-------------------------------------------------------------------------
-Zombie_Heap exists until delete
-Zombie_Stack only exists during function random Chump
--------------------------------------------------------------------------*/
-int main()
+Zombie* zombieHorde(int N, std::string name)
 {
-	Zombie*		zombie = newZombie("Zombie_Heap");
-	
-	zombie->announce();
-	randomChump("Zombie_Stack");
-
-	delete zombie;
-	return (0);
+	Zombie	*zombies = new Zombie[N];
+	for (int i = 0; i < N; i++)
+		zombies[i].init(name);
+	return (zombies);
 }

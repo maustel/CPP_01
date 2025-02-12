@@ -23,7 +23,7 @@ class Zombie
 	public:
 	Zombie(std:: string name);
 	~Zombie();
-	void announce( void );	//public or private?
+	void announce( void );
 };
 
 Zombie* newZombie(std::string name);
