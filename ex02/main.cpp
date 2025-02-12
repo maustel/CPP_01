@@ -5,27 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: maustel <maustel@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 10:43:00 by maustel           #+#    #+#             */
-/*   Updated: 2025/02/12 10:43:00 by maustel          ###   ########.fr       */
+/*   Created: 2025/02/12 12:39:05 by maustel           #+#    #+#             */
+/*   Updated: 2025/02/12 12:39:05 by maustel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
+#include <string>
 
-/*-------------------------------------------------------------------------
-Zombie_Heap exists until delete[] -> deletes the whole array
--------------------------------------------------------------------------*/
 int main()
 {
-	int	nbr_zombies = 10;
-	Zombie*		zombies = zombieHorde(nbr_zombies, "Horst");
-	int i = 0;
+	std::string str = "HI THIS IS BRAIN";
+	std::string* pstr = &str;
+	std::string& rstr = str;
 
-	while (i < nbr_zombies)
-	{
-		zombies[i].announce();
-		i++;
-	}
-	delete[] zombies;
+	std::cout << "memory address of string variable: " << &str << std::endl;
+	std::cout << "memory address held by stringPTR:  " << pstr << std::endl;
+	std::cout << "memory address held by stringREF:  " << &rstr << std::endl;
+
+	std::cout << "value of the string variable:  " << str << std::endl;
+	std::cout << "value pointed to by stringPTR: " << *pstr << std::endl;
+	std::cout << "value pointed to by stringREF: " << rstr << std::endl;
+
 	return (0);
 }

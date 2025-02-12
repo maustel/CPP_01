@@ -12,6 +12,11 @@
 
 #include "Zombie.hpp"
 
+/*-------------------------------------------------------------------------
+create array of zombies of size N
+init to each of them the name
+return pointer to first element
+-------------------------------------------------------------------------*/
 Zombie* zombieHorde(int N, std::string name)
 {
 	Zombie	*zombies = new Zombie[N];

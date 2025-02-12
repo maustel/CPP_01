@@ -1,0 +1,37 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: maustel <maustel@student.42heilbronn.de    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/02/12 12:39:02 by maustel           #+#    #+#              #
+#    Updated: 2025/02/12 12:39:02 by maustel          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = brain
+
+CC = c++
+FLAGS = -Wall -Wextra -Werror -std=c++17
+
+SRC = main.cpp
+OBJ = $(SRC:.cpp=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.cpp
+	$(CC) $(FLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJ)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all, clean, fclean, re
