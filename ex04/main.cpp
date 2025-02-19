@@ -20,7 +20,7 @@ void	write_to_newfile(char *memblock, std::string s1, std::string s2)
 	std::ofstream	newFile ("new.replace");
 	std::string		file_str(memblock);
 	std::size_t		found = 0;
-	int				i = 0;
+	std::size_t		i = 0;
 
 	while (file_str[i])
 	{
@@ -35,7 +35,7 @@ void	write_to_newfile(char *memblock, std::string s1, std::string s2)
 		}
 		else
 		{
-			newFile <<  file_str.substr(i);
+			newFile << file_str.substr(i);
 			break ;
 		}
 	}
@@ -81,6 +81,6 @@ int main(int argc, char **argv)
 	s1 = argv[2];
 	s2 = argv[3];
 	open_and_copy(filename, s1, s2);
-	
+
 	return (0);
 }
