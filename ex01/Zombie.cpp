@@ -14,7 +14,6 @@
 
 Zombie::Zombie(void)
 {
-	// std::cout << this->_name << " rised up!" << std::endl;
 }
 
 Zombie::~Zombie()
@@ -30,4 +29,5 @@ void Zombie::announce( void )
 void Zombie::init(std::string name)
 {
 	this->_name = name;
+	std::cout << this->_name << " rised up!" << std::endl;
 }

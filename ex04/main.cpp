@@ -15,9 +15,9 @@
 #include <fstream>
 #include <sstream>
 
-void	write_to_newfile(char *memblock, std::string s1, std::string s2)
+void	replace(char *memblock, std::string s1, std::string s2, std::string outfile)
 {
-	std::ofstream	newFile ("new.replace");
+	std::ofstream	newFile (outfile);
 	std::string		file_str(memblock);
 	std::size_t		found = 0;
 	std::size_t		i = 0;
@@ -47,11 +47,12 @@ void	open_and_copy(std::string filename, std::string s1, std::string s2)
 	std::ifstream	thisFile;
 	std::streampos	buffersize;
 	char*			memblock;
+	std::string		outfile;
 
 	thisFile.open(filename, std::ios::in | std::ios::ate);	//pos is in the end (ate)
 	if (thisFile.fail())
 	{
-		std::cout << "Error in opening file: " << filename << std::endl;
+		perror("\e[0;31mError");
 		exit (1);
 	}
 	buffersize = thisFile.tellg();	//get size of whole filecontent
@@ -59,7 +60,8 @@ void	open_and_copy(std::string filename, std::string s1, std::string s2)
 	thisFile.seekg(0, std::ios::beg); //get to beginning of file
 	thisFile.read(memblock, buffersize); //put content of file into buffer
 
-	write_to_newfile(memblock, s1, s2);
+	outfile = filename.append(".replace");
+	replace(memblock, s1, s2, outfile);
 
 	delete [] memblock;
 	thisFile.close();
@@ -74,7 +76,7 @@ int main(int argc, char **argv)
 
 	if (argc != 4)
 	{
-		std::cout << "Wrong amount of arguments!" << std::endl;
+		std::cout << "\e[0;31m" << "Error: Wrong amount of arguments!" << "\e[0;37m" << std::endl;
 		return (1);
 	}
 	filename = argv[1];

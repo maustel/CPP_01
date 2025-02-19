@@ -32,7 +32,7 @@ clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -f new.replace
+	rm -f car.txt.replace haystack.txt.replace pizza.txt.replace
 	rm -f $(NAME)
 
 re: fclean all
