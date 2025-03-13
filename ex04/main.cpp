@@ -15,6 +15,14 @@
 #include <fstream>
 #include <sstream>
 
+/*
+Create a program that takes three parameters in the following order: a filename and
+ two strings, s1 and s2.
+ It will open the file <filename> and copies its content into a new file
+ <filename>.replace, replacing every occurrence of s1 with s2.
+
+ Sed (Stream Editor) is a powerful Unix/Linux command-line tool designed for text manipulation
+*/
 void	replace(char *memblock, std::string s1, std::string s2, std::string outfile)
 {
 	std::ofstream	newFile (outfile);

@@ -23,7 +23,7 @@ class Zombie
 	public:
 	Zombie();
 	~Zombie();
-	void announce( void );
+	void announce( void ) const;
 	void init(std::string name);
 };
 
